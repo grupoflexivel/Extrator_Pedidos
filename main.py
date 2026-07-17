@@ -58,9 +58,7 @@ def main() -> None:
 
         logger.info("Iniciando Análise do Relatório")
 
-        #dataframe = carregar_relatorio(f"{nome_relatorio}.xlsx)
-
-        dataframe = carregar_relatorio(f'{nome_relatorio}.xlsx')
+        dataframe = carregar_relatorio(f'{REPORTS_DIR}/{nome_relatorio}.xlsx')
 
         dataframe = filtrar_pedidos_não_embarcados(dataframe,"Embarcado", "NÃO")
 

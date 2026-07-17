@@ -30,17 +30,6 @@ def filtrar_pedidos_atrasados(dataframe:pd.DataFrame,coluna_previsao_embarque: s
 
     return df[pedido_atrasado]
 
-dataframe = carregar_relatorio("teste.xlsx")
-
-dataframe = filtrar_pedidos_não_embarcados(dataframe,"Embarcado", "NÃO")
-
-dataframe = filtrar_pedidos_atrasados(dataframe,"Prev. Embarque")
-
-print(dataframe.head(3))
-
-
-#dataframe = dataframe.drop(columns=["Unnamed: 0"])
-
 def salvar_relatorio_modificado(dataframe: pd.DataFrame):
 
     _,_,hoje = preencher_datas()
@@ -61,7 +50,6 @@ def salvar_relatorio_modificado(dataframe: pd.DataFrame):
         )
     return caminho_salvo
 
-salvar_relatorio_modificado(dataframe)
 
 
 
