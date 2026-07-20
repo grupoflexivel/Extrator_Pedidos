@@ -24,10 +24,6 @@ CSW_URL = get_env("CSW_URL", required=True)
 CSW_USER = get_env("CSW_USER", required=True)
 CSW_PASS = get_env("CSW_PASS", required=True)
 
-# CSW_URL="http://10.1.1.220/"
-# CSW_USER='rpa.flexivel'
-# CSW_PASS='Flex@123'
-
 SELECTOR_USER = 'input[placeholder="Usuário"]'
 SELECTOR_PASS = 'input[placeholder="Senha"]'
 SELECTOR_BUTTON = 'button.loginButton:has-text("Acessar")'
