@@ -38,9 +38,16 @@ def main() -> None:
             logger.debug("Iniciando browser Chromium (headless=True)")
             browser = p.chromium.launch(
                 headless=True,
-                args=["--ignore-certificate-errors"]
+                args=[
+                    "--ignore-certificate-errors",
+                    "--disable-background-timer-throttling",
+                    "--disable-backgrounding-occluded-windows",
+                    "--disable-renderer-backgrounding",
+                ]
             )
 
+            # Viewport mantido no padrão 1280x720: o layout da barra lateral do
+            # CSW é responsivo e o índice dos itens muda em outras larguras.
             context = browser.new_context(ignore_https_errors=True)
             page = context.new_page()
 
@@ -73,6 +80,9 @@ def main() -> None:
     except Exception:
         logger.exception("Falha na execução do RPA.")
         raise
+
+    finally:
+        logger.info("===== Interpretador Python encerrando =====")
 
     logger.info("===== Fim da execução =====")
 
